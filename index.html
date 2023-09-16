@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To-do List</title>
 
     <style>
-    *{
-        margin:0;
-        padding:0;
-        font-family:'Poppins', sans-serif;
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
         box-sizing: border-box;
-    }
+      }
 
-    .container{
+      .container {
         display: block;
         width: 100%;
         min-height: 100vh;
@@ -21,9 +21,8 @@
         padding: 10px;
         justify-content: center;
         align-items: center;
-
-    }
-    .todo{
+      }
+      .todo {
         margin-top: 100px;
         width: 100%;
         max-width: 540px;
@@ -32,35 +31,33 @@
         padding: 40px 30px 70px;
         border-radius: 10px;
         box-shadow: 6px 6px 9px;
-    }
+      }
 
-    .todo h2{
+      .todo h2 {
         color: #002765;
         display: flex;
         align-items: center;
         margin-bottom: 20px;
+      }
 
-    }
-
-    .todo h2 img{
+      .todo h2 img {
         width: 30px;
         margin-left: 10px;
-    }
+      }
 
-    .row{
-     display: flex;   
-     align-items: center;
-     justify-content: space-between;
-     background: #979ba4;
-     border-radius: 30px;
-     padding-left: 10px;
-     margin-bottom: 25px;
-     box-shadow: 6px 6px 9px;
-     padding-top: 4px;
-
-    }
-    input{
-        flex: 1; 
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #979ba4;
+        border-radius: 30px;
+        padding-left: 10px;
+        margin-bottom: 25px;
+        box-shadow: 6px 6px 9px;
+        padding-top: 4px;
+      }
+      input {
+        flex: 1;
         padding: 9px;
         border: none;
         outline: none;
@@ -70,28 +67,25 @@
         /* background: transparent; */
         font-weight: 600;
         box-shadow: 2px 2px 5px;
-
-    }
-    button{
+      }
+      button {
         outline: none;
         border: none;
         border-radius: 30px;
-        padding:8px 36px;
+        padding: 8px 36px;
         margin: 5px;
         box-shadow: 2px 2px 5px;
-
-       
 
         /* color: #fff; */
         background: #0e5376;
         font-size: 20px;
         cursor: pointer;
-    }
-    button:hover{
+      }
+      button:hover {
         background-color: #084ab48d;
-    }
+      }
 
-    ul li{
+      ul li {
         list-style: none;
         font-size: 17px;
         padding: 12px 8px 12px 50px;
@@ -102,11 +96,10 @@
         border: 2P solid black;
         border-radius: 30px;
         margin-bottom: 10px;
+      }
 
-    }
-
-    ul li::before{
-        content: '';
+      ul li::before {
+        content: "";
         position: absolute;
         height: 28px;
         width: 28px;
@@ -117,21 +110,19 @@
         background-position: center;
         top: 15px;
         left: 8px;
-        
-
-    }
-    ul li:hover{
+      }
+      ul li:hover {
         background-color: #979ba4;
-    }
-    ul li.checked{
+      }
+      ul li.checked {
         color: #555;
         text-decoration: line-through;
-    }
-    ul li.checked::before{
-              background-image: url(checked.png);
-    }
+      }
+      ul li.checked::before {
+        background-image: url(checked.png);
+      }
 
-    ul li span{
+      ul li span {
         position: absolute;
         right: 0;
         top: 7px;
@@ -143,76 +134,87 @@
         /* padding-top: 3px; */
         /* justify-content: center; */
         border-radius: 50%;
-                /* box-shadow: 2px 2px 5px; */
+        /* box-shadow: 2px 2px 5px; */
+      }
 
-    }
+      ul li span:hover {
+        background: #edeef0;
+      }
 
-    ul li span:hover{
-background: #edeef0;
-    }
+      @media screen and (max-width: 440px) {
+        .todo {
+          width: 95%;
+        }
+
+        input{
+            width: 60%;
+        }
+
+        button{
+            padding: 8px 36px;
+        margin: 10px;
+        }
+      }
     </style>
-
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-
       <div class="todo">
-        <h2>To-Do List <img src="icon.png" alt=""></h2>
+        <h2>To-Do List <img src="icon.png" alt="" /></h2>
 
         <div class="row">
-            <input type="text" placeholder="Create to-do..." id="input-box">
-            <button onclick="AddTask()">Add</button>
-
+          <input type="text" placeholder="Create to-do..." id="input-box" />
+          <button onclick="AddTask()">Add</button>
         </div>
 
         <ul id="list">
-             <!-- <li class="checked">first</li> -->
-            </ul>
+          <!-- <li class="checked">first</li> -->
+        </ul>
       </div>
     </div>
-</body>
+  </body>
 
-<script>
+  <script>
+    const inputbox = document.getElementById("input-box");
+    const listcont = document.getElementById("list");
 
-const inputbox = document.getElementById("input-box")
-const listcont = document.getElementById("list")
+    function AddTask() {
+      if (inputbox.value === "") {
+        alert("Please enter a task to add");
+      } else {
+        let li = document.createElement("li");
+        li.innerHTML = inputbox.value;
+        listcont.appendChild(li);
 
-function AddTask(){
-    if(inputbox.value === ''){
-        alert("Please enter a task to add")
-    }else{
-        let li = document.createElement("li")
-        li.innerHTML = inputbox.value
-        listcont.appendChild(li)
-
-        let span = document.createElement("span")
-        span.innerHTML = '\u00d7'
-        li.appendChild(span)
+        let span = document.createElement("span");
+        span.innerHTML = "\u00d7";
+        li.appendChild(span);
+      }
+      inputbox.value = "";
+      saveIt();
     }
-    inputbox.value = ''
-    saveIt()
-}
 
-listcont.addEventListener("click", function(e){
-    if(e.target.tagName === "LI"){
-        e.target.classList.toggle("checked")
-        saveIt()
-    }else if(e.target.tagName === "SPAN"){
-e.target.parentElement.remove()
-saveIt()
+    listcont.addEventListener(
+      "click",
+      function (e) {
+        if (e.target.tagName === "LI") {
+          e.target.classList.toggle("checked");
+          saveIt();
+        } else if (e.target.tagName === "SPAN") {
+          e.target.parentElement.remove();
+          saveIt();
+        }
+      },
+      false
+    );
+
+    function saveIt() {
+      localStorage.setItem("data", listcont.innerHTML);
     }
-}, false )
 
-
-function saveIt(){
-    localStorage.setItem("data", listcont.innerHTML)
-}
-
-
-function showTask(){
-    listcont.innerHTML = localStorage.getItem("data")
-}
-showTask()
-</script>
-
+    function showTask() {
+      listcont.innerHTML = localStorage.getItem("data");
+    }
+    showTask();
+  </script>
 </html>
