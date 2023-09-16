@@ -14,19 +14,24 @@
     }
 
     .container{
+        display: block;
         width: 100%;
         min-height: 100vh;
-        background-color: gray;
+        background-color: rgb(128, 128, 128);
         padding: 10px;
+        justify-content: center;
+        align-items: center;
 
     }
     .todo{
+        margin-top: 100px;
         width: 100%;
         max-width: 540px;
-        background: #fff;
-        margin: 100px auto 20px;
+        background: #ffffffdb;
+        margin: 200px auto 20px;
         padding: 40px 30px 70px;
         border-radius: 10px;
+        box-shadow: 6px 6px 9px;
     }
 
     .todo h2{
@@ -46,30 +51,44 @@
      display: flex;   
      align-items: center;
      justify-content: space-between;
-     background: #edeef0;
+     background: #979ba4;
      border-radius: 30px;
      padding-left: 10px;
      margin-bottom: 25px;
+     box-shadow: 6px 6px 9px;
+     padding-top: 4px;
+
     }
     input{
         flex: 1; 
-        padding: 10px;
+        padding: 9px;
         border: none;
         outline: none;
-        border-radius: 30px;
+        border-radius: 25px;
         border: none;
+        font-size: larger;
         /* background: transparent; */
         font-weight: 600;
+        box-shadow: 2px 2px 5px;
+
     }
     button{
         outline: none;
         border: none;
         border-radius: 30px;
-        padding: 12px 40px;
+        padding:8px 36px;
+        margin: 5px;
+        box-shadow: 2px 2px 5px;
+
+       
+
         /* color: #fff; */
-        background: #ff5945;
+        background: #0e5376;
         font-size: 20px;
         cursor: pointer;
+    }
+    button:hover{
+        background-color: #084ab48d;
     }
 
     ul li{
@@ -79,6 +98,11 @@
         user-select: none;
         cursor: pointer;
         position: relative;
+        box-shadow: 2px 2px 5px;
+        border: 2P solid black;
+        border-radius: 30px;
+        margin-bottom: 10px;
+
     }
 
     ul li::before{
@@ -87,12 +111,17 @@
         height: 28px;
         width: 28px;
         border-radius: 50%;
+        background: #0f5d84;
         background-image: url(unchecked.png);
         background-size: cover;
         background-position: center;
         top: 12px;
         left: 8px;
+        
 
+    }
+    ul li:hover{
+        background-color: #979ba4;
     }
     ul li.checked{
         color: #555;
@@ -105,13 +134,17 @@
     ul li span{
         position: absolute;
         right: 0;
-        top: 5px;
+        top: 7px;
         width: 40px;
         height: 40px;
-        color: #555;
-        line-height: 40px;
+        color: #190b9b;
+        line-height: 50px;
         text-align: center;
+        /* padding-top: 3px; */
+        /* justify-content: center; */
         border-radius: 50%;
+                /* box-shadow: 2px 2px 5px; */
+
     }
 
     ul li span:hover{
@@ -127,7 +160,7 @@ background: #edeef0;
         <h2>To-Do List <img src="icon.png" alt=""></h2>
 
         <div class="row">
-            <input type="text" placeholder="Enter the task" id="input-box">
+            <input type="text" placeholder="Create to-do..." id="input-box">
             <button onclick="AddTask()">Add</button>
 
         </div>
