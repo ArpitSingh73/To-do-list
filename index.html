@@ -106,10 +106,15 @@
         border-radius: 50%;
         background: #0f5d84;
         background-image: url(unchecked.png);
+
         background-size: cover;
         background-position: center;
         top: 15px;
         left: 8px;
+      }
+
+      ul li::before:hover{
+        background-color: orangered;
       }
       ul li:hover {
         background-color: #979ba4;
@@ -121,7 +126,12 @@
       ul li.checked::before {
         background-image: url(checked.png);
       }
-
+   ul li div{
+    /* background-color: #190b9b; */
+    width: 89%;
+    height: auto;
+    
+   }
       ul li span {
         position: absolute;
         right: 0;
@@ -134,7 +144,9 @@
         /* padding-top: 3px; */
         /* justify-content: center; */
         border-radius: 50%;
-        /* box-shadow: 2px 2px 5px; */
+        box-shadow: 2px 2px 5px;
+        margin-right: 8px;
+        margin-top: 4px;
       }
 
       ul li span:hover {
@@ -153,6 +165,10 @@
         button{
             padding: 8px 36px;
         margin: 10px;
+        }
+
+        ul li div{
+          width: 80%;
         }
       }
     </style>
@@ -183,12 +199,17 @@
         alert("Please enter a task to add");
       } else {
         let li = document.createElement("li");
-        li.innerHTML = inputbox.value;
-        listcont.appendChild(li);
+        // li.innerHTML = inputbox.value;
+
+let div = document.createElement("div");
+div.innerHTML = inputbox.value;
+li.appendChild(div);
+
+listcont.appendChild(li);
 
         let span = document.createElement("span");
         span.innerHTML = "X";
-        li.appendChild(span);
+        li.append(span);
       }
       inputbox.value = "";
       saveIt();
